@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="custom_rules" >
+
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties" >
+        <classpath>
+            <pathelement location="/home/qiboot/android/adt/sdk/tools/ant-contrib-1.0b3.jar" />
+        </classpath>
+    </taskdef>
+<mkdir dir="${apk.dir}" >
+</mkdir>
+<tstamp>
+<format
+pattern="yyyyMMddhhmm"
+property="pktime"
+unit="hour" />
+</tstamp>
+    <target name="deploy" >
+        <foreach
+            delimiter=","
+            list="${market_channels}"
+            param="channel"
+            target="modify_manifest" >
+        </foreach>
+    </target>
+
+    <target name="modify_manifest" >
+        <property
+            name="out.final.file"
+            location="${apk.dir}/${app.name}_${channel}_${pktime}.apk" />
+        <antcall target="clean" />
+        <antcall target="release" />
+    </target>
+</project>

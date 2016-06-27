@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 为了ant打包时候正则匹配，请不要格式化该文件 -->
+<hostconfig>
+<app_server>https://www.baidu.com/</app_server>
+<app_img_server>1111.1111.1111.1</app_img_server>
+<app_url>http://translate.google.cn</app_url>
+</hostconfig>
